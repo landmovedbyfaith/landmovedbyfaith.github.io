@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Foundation Courses - Land Investment & Real Estate Training</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Course Page Specific Styles */
+        .course-hero {
+            background-image: url('https://thumbs2.imgbox.com/ab/78/8zFyAIwG_t.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .course-hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 1em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: bold;
+        }
+
+        .course-content {
+            padding: 4em 0;
+            background: #1b2021;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3em;
+            margin: 3em 0;
+        }
+
+        .course-card {
+            background: #2a2a2a;
+            border-radius: 15px;
+            padding: 2em;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 1.5em;
+        }
+
+        .course-title {
+            font-size: 1.8em;
+            color: #fff;
+            margin-bottom: 1em;
+            font-weight: 500;
+        }
+
+        .course-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1.5em;
+        }
+
+        .course-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5em;
+        }
+
+        .course-features li {
+            color: #bbb;
+            margin-bottom: 0.5em;
+            padding-left: 1.5em;
+            position: relative;
+        }
+
+        .course-features li:before {
+            content: "✓";
+            color: #8B4513;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .pricing-section {
+            background: #2a2a2a;
+            padding: 4em 2em;
+            margin: 4em 0;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .pricing-title {
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 2em;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2em;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: #1b2021;
+            border-radius: 10px;
+            padding: 2em;
+            border: 2px solid #444;
+        }
+
+        .pricing-card.featured {
+            border-color: #8B4513;
+            transform: scale(1.05);
+        }
+
+        .pricing-name {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 0.5em;
+        }
+
+        .pricing-price {
+            font-size: 2.5em;
+            color: #8B4513;
+            font-weight: bold;
+            margin-bottom: 1em;
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            color: #ccc;
+        }
+
+        .pricing-features li {
+            margin-bottom: 0.5em;
+        }
+
+        .btn-primary {
+            background: #8B4513;
+            color: white;
+            padding: 1em 2em;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1em;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #A0522D;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background: rgba(0,0,0,0.9);
+        }
+
+        @media (max-width: 768px) {
+            .course-hero h1 {
+                font-size: 2.5em;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+                gap: 2em;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Back to Home</a>
+
+    <!-- Hero Section -->
+    <section class="course-hero">
+        <div>
+            <h1>West Foundation Courses</h1>
+            <p>Master the art of land investment and real estate with our comprehensive course</p>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="course-content">
+        <div class="container-template">
+            <div class="headergroup" style="text-align: center; margin-bottom: 3em;">
+                <h2>
+                    <span class="seconday">Our</span>
+                    <span>Premium Courses</span>
+                </h2>
+            </div>
+
+            <div class="course-grid">
+                <!-- Course 1 -->
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400" alt="Land Investment Course" class="course-image">
+                    <h3 class="course-title">Land Investment Mastery</h3>
+                    <p class="course-description">Comprehensive training on land acquisition, evaluation, and investment strategies. Learn from Tom West's 10+ years of experience in the industry.</p>
+                    <ul class="course-features">
+                        <li>Land evaluation techniques</li>
+                        <li>Where to find Leads</li>
+                        <li>How to close a deal</li>
+                        <li>How to choose the best counties</li>
+                        <li>Portfolio management</li>
+                        <li>Meaning of Slope , Wetlands, Elevation, Access & MORE!</li>
+                    </ul>
+                    <a href="#pricing" class="btn-primary">View Pricing</a>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400" alt="Real Estate Investment Course" class="course-image">
+                    <h3 class="course-title">Real Estate Investment Fundamentals</h3>
+                    <p class="course-description">Essential knowledge for real estate investment including property analysis, financing options, and wealth building strategies.</p>
+                    <ul class="course-features">
+                        <li>Property valuation methods</li>
+                        <li>Financing and mortgage options</li>
+                        <li>Tax strategies for investors</li>
+                        <li>Property management basics</li>
+                        <li>When to hold</li>
+                        <li>Exit strategies</li>
+                    </ul>
+                    <a href="#pricing" class="btn-primary">View Pricing</a>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400" alt="Advanced Real Estate Course" class="course-image">
+                    <h3 class="course-title">Advanced Real Estate Strategies</h3>
+                    <p class="course-description">Advanced techniques for experienced investors including commercial real estate, development projects, and international investments.</p>
+                    <ul class="course-features">
+                        <li>Commercial property investment</li>
+                        <li>Development project management</li>
+                        <li>International real estate</li>
+                        <li>Advanced financing techniques</li>
+                        <li>Tax optimization strategies</li>
+                        <li>Hidden Secrets of the business</li>
+                    </ul>
+                    <a href="#pricing" class="btn-primary">View Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="course-content" id="pricing">
+        <div class="container-template">
+            <div class="pricing-section">
+                <h2 class="pricing-title">Course Pricing</h2>
+                <div class="pricing-grid">
+                    <!-- Basic Package -->
+                    <div class="pricing-card">
+                        <h3 class="pricing-name">3 MONTHS</h3>
+                        <div class="pricing-price">$5000</div>
+                        <ul class="pricing-features">
+                            <li>Fly one way to learn</li>
+                            <li>Everyday you gather knowledge to take home</li>
+                            <li>How where and when to use your best Leads</li>
+                            <li>Access to private community</li>
+                            <li>Certificate of completion</li>
+                        </ul>
+                        <button class="btn-primary" onclick="contactForPurchase('Basic Package')">Enroll Now</button>
+                    </div>
+
+                    <!-- Premium Package -->
+                    <div class="pricing-card featured">
+                        <h3 class="pricing-name">6 MONTHS</h3>
+                        <div class="pricing-price">$8,000</div>
+                        <ul class="pricing-features">
+                            <li>Fly one way to learn</li>
+                            <li>Everyday We Work Together to build your portfolio</li>
+                            <li>How where and when to use your best Leads</li>
+                            <li>Access to private community</li>
+                            <li>Certificate of completion</li>
+                            <li>Bonus: Investment calculator tool</li>
+                        </ul>
+                        <button class="btn-primary" onclick="contactForPurchase('Premium Package')">Enroll Now</button>
+                    </div>
+
+                    <!-- VIP Package -->
+                    <div class="pricing-card">
+                        <h3 class="pricing-name">1 YEAR</h3>
+                        <div class="pricing-price">$10,000</div>
+                        <ul class="pricing-features">
+                            <li>Either you fly to me or I fly to you</li>
+                            <li>Everyday We Work Together to build your portfolio</li>
+                            <li>How where and when to use your best Leads</li>
+                            <li>Access to private community</li>
+                            <li>Certificate of completion</li>
+                            <li>Investment analysis consultation</li>
+                            <li>Personal investment plan review</li>
+                        </ul>
+                        <button class="btn-primary" onclick="contactForPurchase('VIP Package')">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div style="text-align: center; margin-top: 3em; color: #ccc;">
+                <h3 style="text-align: center;">Why Choose West Foundation Courses?</h3>
+                <p>Learn from Tom West's proven track record of buying and selling over 100 properties. Our courses combine practical experience with expert knowledge to give you the tools you need to succeed in land and real estate investment.</p>
+                <p><strong>All courses include lifetime access to materials and updates.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function contactForPurchase(packageName) {
+            // This could be enhanced to integrate with a payment system
+            alert(`Thank you for your interest in the ${packageName}! Please contact us to complete your enrollment.`);
+            window.location.href = 'mailto:info@westfoundation.com?subject=Course Enrollment - ' + packageName;
+        }
+    </script>
+</body>
+</html>
