@@ -1,0 +1,866 @@
+/* ===== MOBILE RESPONSIVE FIXES ===== */
+
+/* Mobile Navigation Improvements */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0.75rem 1rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: rgba(10, 10, 10, 0.98);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        backdrop-filter: blur(15px);
+        padding: 2rem 0;
+        border-top: 2px solid #FFD700;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu .nav-link {
+        padding: 1rem 0;
+        font-size: 1.125rem;
+    }
+    
+    .nav-cta {
+        margin-top: 1rem;
+        padding: 1rem 2rem;
+    }
+
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+    
+    .nav-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Hero Section Mobile Optimizations */
+@media (max-width: 768px) {
+    .hero, .academy-hero {
+        min-height: 90vh;
+        padding-top: 70px;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2.25rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.125rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .stat {
+        padding: 1rem;
+        background: rgba(255, 215, 0, 0.1);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .program-highlights {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .highlight-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .academy-hero-content {
+        padding: 0 1rem;
+    }
+}
+
+/* Mobile Typography */
+@media (max-width: 768px) {
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.875rem; }
+    h3 { font-size: 1.5rem; }
+    
+    .section-title {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+/* Program Cards Mobile */
+@media (max-width: 768px) {
+    .program-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .program-card {
+        padding: 2rem 1.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .program-card.featured {
+        transform: none;
+        margin: 0 0.5rem;
+    }
+    
+    .card-icon-wrapper {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .card-icon-wrapper .card-icon {
+        font-size: 1.75rem;
+    }
+}
+
+/* Instructor Bio Mobile */
+@media (max-width: 768px) {
+    .bio-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .image-placeholder {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .image-placeholder i {
+        font-size: 4rem;
+    }
+    
+    .experience-badge {
+        position: static;
+        margin-top: 1rem;
+        display: inline-block;
+    }
+    
+    .bio-content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .achievements {
+        text-align: left;
+    }
+    
+    .achievement {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+/* Curriculum Mobile */
+@media (max-width: 768px) {
+    .curriculum-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .curriculum-item {
+        padding: 1.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .item-number {
+        font-size: 1.75rem;
+    }
+    
+    .weekly-breakdown {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .week-card {
+        background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        border-left: 4px solid #FFD700;
+    }
+    
+    .week-card.featured {
+        background: linear-gradient(135deg, #FFD700 0%, #DAA520 100%);
+        color: #000000;
+        border-left: 4px solid #B8860B;
+    }
+    
+    .week-number {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #FFD700;
+        margin-bottom: 1rem;
+    }
+    
+    .week-card.featured .week-number {
+        color: #FFD700;
+    }
+    
+    .week-topics {
+        list-style: none;
+        margin-top: 1rem;
+    }
+    
+    .week-topics li {
+        margin-bottom: 0.75rem;
+        padding-left: 1rem;
+        position: relative;
+        color: #ffffff;
+    }
+    
+    .week-card.featured .week-topics li {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .week-topics li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #FFD700;
+    }
+    
+    .week-card.featured .week-topics li::before {
+        color: #FFD700;
+    }
+    
+    .week-deliverable {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        background: rgba(255, 215, 0, 0.1);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 500;
+        color: #FFD700;
+    }
+    
+    .week-card.featured .week-deliverable {
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+    }
+    
+    .week-deliverable i {
+        color: #FFD700;
+        font-size: 1.25rem;
+    }
+    
+    .week-card.featured .week-deliverable i {
+        color: #FFD700;
+    }
+}
+
+/* Benefits Section Mobile */
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .benefit-item {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .benefit-icon {
+        width: 50px;
+        height: 50px;
+        flex-shrink: 0;
+    }
+    
+    .benefit-icon i {
+        font-size: 1.25rem;
+    }
+    
+    .visual-card {
+        max-width: 100%;
+        margin: 0 1rem;
+    }
+}
+
+/* Learning Experience Mobile */
+@media (max-width: 768px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .learning-methods {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+    
+    .method {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    .method-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    
+    .method-icon i {
+        color: white;
+        font-size: 1.25rem;
+    }
+    
+    .method-content h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.125rem;
+    }
+    
+    .method-content p {
+        font-size: 0.875rem;
+        margin: 0;
+    }
+    
+    .daily-knowledge-card {
+        margin: 0 1rem;
+    }
+}
+
+/* Strategy Section Mobile */
+@media (max-width: 768px) {
+    .strategy-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .strategy-card {
+        background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin: 0 0.5rem;
+    }
+    
+    .strategy-card.featured {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    
+    .strategy-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .strategy-card.featured .strategy-icon {
+        background: rgba(0, 0, 0, 0.3);
+    }
+    
+    .strategy-icon i {
+        color: white;
+        font-size: 1.75rem;
+    }
+    
+    .strategy-card h3 {
+        margin-bottom: 1.5rem;
+        font-size: 1.25rem;
+    }
+    
+    .strategy-card ul {
+        list-style: none;
+        text-align: left;
+    }
+    
+    .strategy-card li {
+        margin-bottom: 0.75rem;
+        padding-left: 1rem;
+        position: relative;
+        color: #ffffff;
+    }
+    
+    .strategy-card.featured li {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .strategy-card li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #FFD700;
+        font-weight: bold;
+    }
+    
+    .strategy-card.featured li::before {
+        color: #FFD700;
+    }
+}
+
+/* Community Section Mobile */
+@media (max-width: 768px) {
+    .community-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .community-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+        background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+        padding: 1.5rem 1rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #FFD700;
+        margin-bottom: 0.25rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+        color: #718096;
+        font-weight: 500;
+    }
+    
+    .community-benefits .benefit {
+        margin-bottom: 1.5rem;
+    }
+    
+    .community-benefits .benefit i {
+        color: #FFD700;
+        margin-right: 0.75rem;
+        font-size: 1.25rem;
+    }
+}
+
+/* Certification Mobile */
+@media (max-width: 768px) {
+    .certification-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .certificate-mockup {
+        background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 3px solid #FFD700;
+        text-align: center;
+        margin: 0 1rem;
+    }
+    
+    .cert-header {
+        margin-bottom: 1.5rem;
+    }
+    
+    .cert-header i {
+        color: #FFD700;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .cert-header h3 {
+        color: #FFD700;
+        font-size: 1.25rem;
+    }
+    
+    .cert-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #FFD700;
+        margin: 1rem 0;
+    }
+    
+    .cert-program {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #FFD700;
+        margin: 1rem 0;
+    }
+    
+    .cert-signature {
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 2px solid #e2e8f0;
+    }
+    
+    .signature-line {
+        font-weight: 600;
+        color: #FFD700;
+    }
+    
+    .signature-title {
+        font-size: 0.875rem;
+        color: #718096;
+    }
+    
+    .cert-benefits {
+        margin-top: 2rem;
+    }
+    
+    .cert-benefit {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        background: rgba(255, 215, 0, 0.1);
+        border-radius: 10px;
+    }
+    
+    .cert-benefit i {
+        color: #FFD700;
+        font-size: 1.125rem;
+    }
+}
+
+/* Enrollment Section Mobile */
+@media (max-width: 768px) {
+    .enrollment-section {
+        padding: 3rem 0;
+    }
+    
+    .enrollment-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .pricing-card {
+        background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        margin: 0 1rem 2rem;
+    }
+    
+    .price-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #e2e8f0;
+    }
+    
+    .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #FFD700;
+    }
+    
+    .price-period {
+        color: #718096;
+        font-weight: 500;
+    }
+    
+    .price-includes h4 {
+        margin-bottom: 1rem;
+        color: #FFD700;
+    }
+    
+    .price-includes ul {
+        list-style: none;
+        margin-bottom: 2rem;
+    }
+    
+    .price-includes li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        color: #ffffff;
+    }
+    
+    .price-includes i {
+        color: #FFD700;
+    }
+    
+    .payment-options {
+        background: rgba(255, 215, 0, 0.1);
+        padding: 1.5rem;
+        border-radius: 10px;
+    }
+    
+    .payment-option {
+        margin-bottom: 0.75rem;
+        color: #ffffff;
+    }
+    
+    .enrollment-form {
+        background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        margin: 0 1rem;
+    }
+    
+    .form-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #FFD700;
+    }
+    
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 1rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: #DAA520;
+    }
+    
+    .checkbox-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .checkbox-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        cursor: pointer;
+        font-size: 0.875rem;
+        line-height: 1.4;
+    }
+    
+    .checkmark {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #e2e8f0;
+        border-radius: 4px;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    
+    .enrollment-guarantee {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #e2e8f0;
+    }
+    
+    .guarantee-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        color: #718096;
+        justify-content: center;
+    }
+    
+    .guarantee-item i {
+        color: #FFD700;
+    }
+}
+
+/* Footer Mobile */
+@media (max-width: 768px) {
+    .footer {
+        padding: 3rem 0 1rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        margin-bottom: 1rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .footer-links {
+        text-align: center;
+    }
+    
+    .footer-contact {
+        text-align: center;
+    }
+    
+    .contact-item {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .footer-legal {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* General Mobile Optimizations */
+@media (max-width: 768px) {
+    section {
+        padding: 3rem 0;
+    }
+    
+    .btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .btn-large {
+        padding: 1.125rem 2rem;
+        font-size: 1.05rem;
+    }
+    
+    /* Ensure proper touch targets */
+    button, .btn, .nav-link {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Improve readability */
+    p, li {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    /* Better spacing */
+    .section-header {
+        margin-bottom: 2.5rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .program-card,
+    .week-card,
+    .strategy-card {
+        margin: 0;
+    }
+    
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    .pricing-card,
+    .enrollment-form,
+    .certificate-mockup,
+    .visual-card,
+    .daily-knowledge-card {
+        margin: 0 0.5rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .btn-large {
+        padding: 1rem 1.75rem;
+        font-size: 1rem;
+    }
+}

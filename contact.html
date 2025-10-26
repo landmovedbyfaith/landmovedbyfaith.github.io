@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Land Moved by Faith | Schedule Consultation</title>
+    <meta name="description" content="Get in touch with Land Moved by Faith. Schedule consultation, ask questions, or learn more about land investment training.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/mobile-fixes.css">
+    
+    <style>
+        /* Contact Cards */
+        .contact-card {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .contact-card:hover::before { left: 100%; }
+        
+        .card-icon {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+        }
+        
+        .card-title {
+            color: #FFD700;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .card-info {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-description {
+            color: #DAA520;
+            font-size: 0.9rem;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        /* Form Styling */
+        .form-container {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            color: #FFD700;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        /* FAQ Cards */
+        .faq-card {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .faq-card:hover {
+            border-color: #FFD700;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .faq-question {
+            color: #FFD700;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            color: #ffffff;
+            line-height: 1.6;
+            display: none;
+        }
+        
+        .faq-card.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-card.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        /* Contact Options */
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-option {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-option:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .option-icon {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+        
+        .option-content h3 {
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .option-content p {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        .option-content span {
+            color: #DAA520;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-mountain nav-icon"></i>
+                <span class="logo-text">Land Moved by Faith</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="academy.html" class="nav-link">Academy</a>
+                <a href="about.html" class="nav-link">About Tom</a>
+                <a href="testimonials.html" class="nav-link">Success Stories</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+                <a href="academy.html#enroll" class="nav-cta">Enroll Now</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="contact-hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-comments"></i>
+                    <span>Let's Connect</span>
+                </div>
+                
+                <h1 class="hero-title">Get In Touch</h1>
+                <p class="hero-subtitle">
+                    Ready to start your land investment journey? Let's discuss your goals and next steps.
+                </p>
+                
+                <div class="contact-options">
+                    <div class="contact-option">
+                        <div class="option-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Call Us</h3>
+                            <p>(555) 123-LAND</p>
+                            <span>Mon-Fri 9AM-6PM CST</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-option">
+                        <div class="option-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Email Us</h3>
+                            <p>info@tomwestacademy.com</p>
+                            <span>Response within 24 hours</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-option">
+                        <div class="option-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Free Consultation</h3>
+                            <p>15-minute strategy call</p>
+                            <span>Available 7 days a week</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Cards Section -->
+    <section class="contact-cards-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">How Can We Help?</span>
+                <h2 class="section-title">Choose Your Path Forward</h2>
+                <p class="section-subtitle">
+                    Select the option that best fits your current situation and goals
+                </p>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- Academy Info Card -->
+                <div class="contact-card">
+                    <i class="fas fa-graduation-cap card-icon"></i>
+                    <h3 class="card-title">Academy Information</h3>
+                    <p class="card-info">Learn about our 8-week program</p>
+                    <p class="card-description">Curriculum details, schedule, pricing, and enrollment process</p>
+                </div>
+                
+                <!-- Free Consultation Card -->
+                <div class="contact-card">
+                    <i class="fas fa-user-tie card-icon"></i>
+                    <h3 class="card-title">Free Consultation</h3>
+                    <p class="card-info">15-minute strategy session</p>
+                    <p class="card-description">Personalized advice and program recommendations</p>
+                </div>
+                
+                <!-- Success Stories Card -->
+                <div class="contact-card">
+                    <i class="fas fa-trophy card-icon"></i>
+                    <h3 class="card-title">Student References</h3>
+                    <p class="card-info">Connect with graduates</p>
+                    <p class="card-description">Speak directly with successful academy alumni</p>
+                </div>
+                
+                <!-- Technical Support Card -->
+                <div class="contact-card">
+                    <i class="fas fa-headset card-icon"></i>
+                    <h3 class="card-title">Support</h3>
+                    <p class="card-info">Technical assistance</p>
+                    <p class="card-description">Help with platform access or course materials</p>
+                </div>
+                
+                <!-- Payment Plans Card -->
+                <div class="contact-card">
+                    <i class="fas fa-credit-card card-icon"></i>
+                    <h3 class="card-title">Payment Options</h3>
+                    <p class="card-info">Flexible financing</p>
+                    <p class="card-description">Custom payment plans to fit your budget</p>
+                </div>
+                
+                <!-- Partnership Card -->
+                <div class="contact-card">
+                    <i class="fas fa-handshake card-icon"></i>
+                    <h3 class="card-title">Partnerships</h3>
+                    <p class="card-info">Business opportunities</p>
+                    <p class="card-description">Corporate training and collaboration inquiries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Send Us a Message</h2>
+                    <p>Fill out the form and we'll get back to you within 24 hours with personalized information.</p>
+                    
+                    <div class="info-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Quick Response</strong>
+                                <span>24-hour response guarantee</span>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Personalized Advice</strong>
+                                <span>Tailored to your situation</span>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>No Pressure</strong>
+                                <span>Honest guidance always</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">I'm Interested In *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select your interest</option>
+                                <option value="academy-info">Academy Information</option>
+                                <option value="consultation">Free Consultation</option>
+                                <option value="enrollment">Enrollment Process</option>
+                                <option value="pricing">Pricing & Payment Plans</option>
+                                <option value="references">Student References</option>
+                                <option value="support">Technical Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="experience">Investment Experience</label>
+                            <select id="experience" name="experience">
+                                <option value="">Select experience level</option>
+                                <option value="complete-beginner">Complete Beginner</option>
+                                <option value="some-real-estate">Some Real Estate</option>
+                                <option value="experienced-investor">Experienced Investor</option>
+                                <option value="professional">Real Estate Professional</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us how we can help you..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                        
+                        <div class="form-note">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Your information is secure and never shared.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="contact-faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Quick Answers</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-card" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        <span>How quickly will I hear back?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We respond to all inquiries within 24 hours, often much sooner. For urgent matters, call us directly during business hours.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-card" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        <span>Is the consultation really free?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our 15-minute consultation is completely free with no obligations. We genuinely want to help determine if land investment is right for you.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-card" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        <span>Can I speak with Tom directly?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tom personally handles consultations for serious prospects. We'll determine during your consultation if a direct conversation would be beneficial.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-card" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        <span>Do you offer payment plans?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer flexible payment plans to make the academy accessible. We'll discuss options during your consultation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-mountain"></i>
+                        <span>Land Moved by Faith</span>
+                    </div>
+                    <p>Transforming lives through land investment education since 2013.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="academy.html">Academy</a></li>
+                        <li><a href="about.html">About Tom</a></li>
+                        <li><a href="testimonials.html">Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="academy.html">Land Investment Academy</a></li>
+                        <li><a href="contact.html">Private Coaching</a></li>
+                        <li><a href="contact.html">Consultation</a></li>
+                        <li><a href="contact.html">Field Training</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@tomwestacademy.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dallas, TX</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Land Moved by Faith. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile navigation
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle?.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+        
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            element.classList.toggle('active');
+        }
+        
+        // Form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll respond within 24 hours.');
+        });
+        
+        // Card animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.contact-card, .faq-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

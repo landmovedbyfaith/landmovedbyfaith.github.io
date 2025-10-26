@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Tom West - Land Investment Expert | Land Moved by Faith</title>
+    <meta name="description" content="Meet Tom West, your trusted guide to land investment success. 10+ years experience, 500+ students trained, proven results.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/mobile-fixes.css">
+    
+    <style>
+        /* Modal & Interactive Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            margin: 5% auto;
+            padding: 2rem;
+            border: 2px solid #FFD700;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.4);
+            color: white;
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .close {
+            color: #FFD700;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close:hover { color: #DAA520; transform: scale(1.2); }
+        
+        /* About Cards */
+        .about-card {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
+        }
+        
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .about-card:hover::before { left: 100%; }
+        
+        .card-icon {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+        }
+        
+        .card-title {
+            color: #FFD700;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .card-description {
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+        
+        .card-cta {
+            color: #FFD700;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        /* Hero Stats */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-card {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+        
+        /* Philosophy Grid */
+        .philosophy-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .philosophy-card {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .philosophy-card:hover {
+            border-color: #FFD700;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .philosophy-card i {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+        
+        .philosophy-card h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+        
+        .philosophy-card p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-mountain nav-icon"></i>
+                <span class="logo-text">Land Moved by Faith</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="academy.html" class="nav-link">Academy</a>
+                <a href="about.html" class="nav-link active">About Tom</a>
+                <a href="testimonials.html" class="nav-link">Success Stories</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="academy.html#enroll" class="nav-cta">Enroll Now</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="about-hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-award"></i>
+                        <span>Land Investment Expert</span>
+                    </div>
+                    
+                    <h1 class="hero-title">Meet Tom West</h1>
+                    <h2 class="hero-subtitle">Your Trusted Guide to Land Investment Success</h2>
+                    
+                    <p class="hero-description">
+                        10+ years of proven success. 500+ students trained. $1M+ in deals closed.
+                        Tom transforms beginners into confident land investors.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">$1M+</div>
+                            <div class="stat-label">In Land Deals</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Students Trained</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">25+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="tom-image-card">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="image-overlay">
+                            <div class="overlay-badge">
+                                <i class="fas fa-trophy"></i>
+                                <span>Industry Leader</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive About Sections -->
+    <section class="program-structure">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Discover Tom's Story</span>
+                <h2 class="section-title">Click to Explore His Journey</h2>
+                <p class="section-subtitle">
+                    From beginner to expert - learn what makes Tom the trusted mentor for land investors
+                </p>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- Journey Card -->
+                <div class="about-card" onclick="openModal('journey')">
+                    <i class="fas fa-road card-icon"></i>
+                    <h3 class="card-title">The Journey</h3>
+                    <p class="card-description">From complete beginner to industry expert - discover Tom's path to mastery.</p>
+                    <span class="card-cta">Explore Timeline <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <!-- Philosophy Card -->
+                <div class="about-card" onclick="openModal('philosophy')">
+                    <i class="fas fa-lightbulb card-icon"></i>
+                    <h3 class="card-title">Teaching Philosophy</h3>
+                    <p class="card-description">Learn why Tom's approach consistently produces successful investors.</p>
+                    <span class="card-cta">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <!-- Credentials Card -->
+                <div class="about-card" onclick="openModal('credentials')">
+                    <i class="fas fa-certificate card-icon"></i>
+                    <h3 class="card-title">Credentials & Expertise</h3>
+                    <p class="card-description">Professional background, certifications, and industry recognition.</p>
+                    <span class="card-cta">View Details <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <!-- Mission Card -->
+                <div class="about-card" onclick="openModal('mission')">
+                    <i class="fas fa-heart card-icon"></i>
+                    <h3 class="card-title">Personal Mission</h3>
+                    <p class="card-description">Tom's commitment to empowering others through land investment education.</p>
+                    <span class="card-cta">Read Mission <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <!-- Results Card -->
+                <div class="about-card" onclick="openModal('results')">
+                    <i class="fas fa-chart-line card-icon"></i>
+                    <h3 class="card-title">Student Results</h3>
+                    <p class="card-description">Real metrics and success stories from Tom's academy graduates.</p>
+                    <span class="card-cta">See Results <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <!-- Publications Card -->
+                <div class="about-card" onclick="openModal('publications')">
+                    <i class="fas fa-book card-icon"></i>
+                    <h3 class="card-title">Published Works</h3>
+                    <p class="card-description">Books, articles, and resources Tom has created for the investment community.</p>
+                    <span class="card-cta">View Publications <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching Philosophy Preview -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Why Students Succeed</span>
+                <h2 class="section-title">Tom's Proven Teaching Methods</h2>
+            </div>
+            
+            <div class="philosophy-cards">
+                <div class="philosophy-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Hands-On Learning</h3>
+                    <p>Every concept paired with practical exercises and real-world applications.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Risk Management First</h3>
+                    <p>Comprehensive risk assessment before focusing on profits.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <i class="fas fa-infinity"></i>
+                    <h3>Lifetime Support</h3>
+                    <p>Ongoing support throughout your investment journey.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Adaptive Strategies</h3>
+                    <p>Methods updated based on current market conditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="about-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Learn from Tom?</h2>
+                <p>Join hundreds of successful students who have transformed their financial futures.</p>
+                
+                <div class="cta-actions">
+                    <a href="academy.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-graduation-cap"></i>
+                        Enroll in Academy
+                    </a>
+                    <a href="contact.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-calendar"></i>
+                        Schedule Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Journey Modal -->
+    <div id="journey" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('journey')">&times;</span>
+            <h3><i class="fas fa-road"></i> Tom's Journey: From Beginner to Expert</h3>
+            
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: #FFD700;">2013 - The Beginning</h4>
+                <p>Tom made his first land investment with limited knowledge but unlimited determination. Early mistakes became valuable learning experiences.</p>
+            </div>
+            
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: #FFD700;">2014-2015 - Learning Phase</h4>
+                <p>Dedicated countless hours to understanding market dynamics, legal requirements, and due diligence processes.</p>
+            </div>
+            
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: #FFD700;">2016-2018 - Scaling Success</h4>
+                <p>Refined investment strategies and began closing multiple deals per year. Developed proven systems for consistent results.</p>
+            </div>
+            
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: #FFD700;">2019-2020 - Teaching Begins</h4>
+                <p>Started mentoring individual investors and discovered his passion for teaching.</p>
+            </div>
+            
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: #FFD700;">2021-Present - Academy Launch</h4>
+                <p>Launched the comprehensive Land Investment Academy with 95% student success rate.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Philosophy Modal -->
+    <div id="philosophy" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('philosophy')">&times;</span>
+            <h3><i class="fas fa-lightbulb"></i> Teaching Philosophy</h3>
+            <p><strong>Built on real-world experience and genuine care for student success.</strong></p>
+            
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin: 1rem 0; color: white;"><strong style="color: #FFD700;">Hands-On Learning:</strong> Every concept paired with practical exercises</li>
+                <li style="margin: 1rem 0; color: white;"><strong style="color: #FFD700;">Risk First:</strong> Comprehensive risk assessment before profit focus</li>
+                <li style="margin: 1rem 0; color: white;"><strong style="color: #FFD700;">Lifetime Support:</strong> Ongoing relationships beyond graduation</li>
+                <li style="margin: 1rem 0; color: white;"><strong style="color: #FFD700;">Adaptive Methods:</strong> Strategies updated with market conditions</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Credentials Modal -->
+    <div id="credentials" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('credentials')">&times;</span>
+            <h3><i class="fas fa-certificate"></i> Credentials & Expertise</h3>
+            
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: #FFD700;">Professional Certifications</h4>
+                <ul>
+                    <li>Real Estate License (Active)</li>
+                    <li>Land Investment Specialist</li>
+                    <li>Due Diligence Certification</li>
+                    <li>Negotiation Expert Certification</li>
+                </ul>
+            </div>
+            
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: #FFD700;">Industry Recognition</h4>
+                <ul>
+                    <li>Top 1% Land Investors (2022-2024)</li>
+                    <li>Mentor of the Year Award (2023)</li>
+                    <li>Speaking Engagements at 15+ Conferences</li>
+                    <li>Featured in Real Estate Investment Journal</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mission Modal -->
+    <div id="mission" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('mission')">&times;</span>
+            <h3><i class="fas fa-heart"></i> Personal Mission</h3>
+            
+            <blockquote style="font-style: italic; color: #FFD700; font-size: 1.2rem; margin: 1.5rem 0;">
+                "My mission is simple: to empower everyday people to achieve financial freedom through land investment. 
+                I believe that with the right knowledge, systems, and support, anyone can build wealth through land."
+            </blockquote>
+            
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: #FFD700;">Core Values</h4>
+                <ul>
+                    <li>🤝 Integrity First</li>
+                    <li>👥 Student Success</li>
+                    <li>💡 Continuous Learning</li>
+                    <li>✋ Ethical Business</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Results Modal -->
+    <div id="results" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('results')">&times;</span>
+            <h3><i class="fas fa-chart-line"></i> Student Success Metrics</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+                <div style="text-align: center; padding: 1rem; background: rgba(255, 215, 0, 0.1); border-radius: 10px;">
+                    <div style="font-size: 2rem; color: #FFD700; font-weight: bold;">95%</div>
+                    <div>Success Rate</div>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: rgba(255, 215, 0, 0.1); border-radius: 10px;">
+                    <div style="font-size: 2rem; color: #FFD700; font-weight: bold;">$2.5M</div>
+                    <div>Avg Portfolio Value</div>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: rgba(255, 215, 0, 0.1); border-radius: 10px;">
+                    <div style="font-size: 2rem; color: #FFD700; font-weight: bold;">4.9★</div>
+                    <div>Student Rating</div>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: rgba(255, 215, 0, 0.1); border-radius: 10px;">
+                    <div style="font-size: 2rem; color: #FFD700; font-weight: bold;">85%</div>
+                    <div>Referral Rate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Publications Modal -->
+    <div id="publications" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('publications')">&times;</span>
+            <h3><i class="fas fa-book"></i> Published Works & Resources</h3>
+            
+            <ul>
+                <li style="margin: 1rem 0;">📖 "The Complete Guide to Land Investing"</li>
+                <li style="margin: 1rem 0;">📰 50+ Articles in Industry Publications</li>
+                <li style="margin: 1rem 0;">📧 Weekly Investment Newsletter (10k+ subscribers)</li>
+                <li style="margin: 1rem 0;">🎙️ Land Investment Podcast (Top 5% in Business)</li>
+                <li style="margin: 1rem 0;">🏢 Professional Association Memberships</li>
+                <li style="margin: 1rem 0;">🎯 Regular Speaking Engagements</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-mountain"></i>
+                        <span>Land Moved by Faith</span>
+                    </div>
+                    <p>Transforming lives through land investment education since 2013.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="academy.html">Academy</a></li>
+                        <li><a href="about.html">About Tom</a></li>
+                        <li><a href="testimonials.html">Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="academy.html">Land Investment Academy</a></li>
+                        <li><a href="contact.html">Private Coaching</a></li>
+                        <li><a href="contact.html">Consultation</a></li>
+                        <li><a href="contact.html">Field Training</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@tomwestacademy.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dallas, TX</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Land Moved by Faith. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+        
+        // Mobile navigation
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle?.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+        
+        // Card animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.about-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

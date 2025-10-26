@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Land Investment Academy - Complete Training Program | Land Moved by Faith</title>
+    <meta name="description" content="Master land investment with our comprehensive academy training. Interactive learning experience with expert guidance.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/mobile-fixes.css">
+    
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            margin: 5% auto;
+            padding: 2rem;
+            border: 2px solid #FFD700;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.4);
+            color: white;
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .close {
+            color: #FFD700;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close:hover {
+            color: #DAA520;
+            transform: scale(1.2);
+        }
+        
+        .modal h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        }
+        
+        .modal ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .modal li {
+            color: #ffffff;
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .modal li::before {
+            content: '⭐';
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+        }
+        
+        /* Interactive Cards */
+        .academy-card {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .academy-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
+        }
+        
+        .academy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .academy-card:hover::before {
+            left: 100%;
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+        }
+        
+        .card-title {
+            color: #FFD700;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+        }
+        
+        .card-description {
+            color: #ffffff;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .card-cta {
+            color: #FFD700;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .card-cta:hover {
+            color: #DAA520;
+            transform: translateX(5px);
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .hero-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .hero-card {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-card:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .hero-card i {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+        }
+        
+        .hero-card strong {
+            color: #FFD700;
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-card span {
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+        
+        /* Enrollment Section */
+        .enrollment-cta {
+            background: linear-gradient(135deg, #FFD700, #DAA520);
+            color: #000000;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .enrollment-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%);
+            background-size: 20px 20px;
+            animation: shine 2s linear infinite;
+        }
+        
+        @keyframes shine {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 20px; }
+        }
+        
+        .enrollment-price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 1rem 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .enrollment-btn {
+            background: #0a0a0a;
+            color: #FFD700;
+            padding: 1rem 2rem;
+            border: 2px solid #FFD700;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .enrollment-btn:hover {
+            background: #FFD700;
+            color: #000000;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-mountain nav-icon"></i>
+                <span class="logo-text">Land Moved by Faith</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="academy.html" class="nav-link active">Academy</a>
+                <a href="about.html" class="nav-link">About Tom</a>
+                <a href="testimonials.html" class="nav-link">Success Stories</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="#enroll" class="nav-cta">Enroll Now</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Academy Hero -->
+    <section class="academy-hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="academy-hero-content">
+                <h1 class="hero-title">
+                    Land Investment Academy
+                    <span class="highlight">Transform Your Future</span>
+                </h1>
+                
+                <p class="hero-subtitle" style="text-align: center !important; margin: 0 auto;">
+                    Master land investment with Tom West's proven strategies. Interactive learning, real-world application.
+                </p>
+                
+                <div class="hero-cards">
+                    <div class="hero-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <strong>8 Weeks</strong>
+                        <span>Complete Program</span>
+                    </div>
+                    <div class="hero-card">
+                        <i class="fas fa-users"></i>
+                        <strong>Small Class</strong>
+                        <span>Personal Attention</span>
+                    </div>
+                    <div class="hero-card">
+                        <i class="fas fa-certificate"></i>
+                        <strong>Certified</strong>
+                        <span>Upon Completion</span>
+                    </div>
+                    <div class="hero-card">
+                        <i class="fas fa-handshake"></i>
+                        <strong>Lifetime</strong>
+                        <span>Community Access</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Learning Modules -->
+    <section class="program-structure">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Interactive Learning</span>
+                <h2 class="section-title">Discover What You'll Master</h2>
+                <p class="section-subtitle">
+                    Click any module to explore detailed curriculum and learning outcomes
+                </p>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- Week 1 Card -->
+                <div class="academy-card" onclick="openModal('week1')">
+                    <i class="fas fa-foundation card-icon"></i>
+                    <h3 class="card-title">Foundation & Market Analysis</h3>
+                    <p class="card-description">Build your investment knowledge foundation and master market research techniques.</p>
+                    <span class="card-cta">Explore Week 1 <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <!-- Week 2 Card -->
+                <div class="academy-card" onclick="openModal('week2')">
+                    <i class="fas fa-search-plus card-icon"></i>
+                    <h3 class="card-title">Lead Generation Systems</h3>
+                    <p class="card-description">Master the art of finding profitable deals before your competition discovers them.</p>
+                    <span class="card-cta">Explore Week 2 <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <!-- Week 3 Card -->
+                <div class="academy-card" onclick="openModal('week3')">
+                    <i class="fas fa-clipboard-check card-icon"></i>
+                    <h3 class="card-title">Due Diligence Mastery</h3>
+                    <p class="card-description">Comprehensive property evaluation to avoid costly mistakes and maximize returns.</p>
+                    <span class="card-cta">Explore Week 3 <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <!-- Week 4 Card -->
+                <div class="academy-card" onclick="openModal('week4')">
+                    <i class="fas fa-calculator card-icon"></i>
+                    <h3 class="card-title">Valuation & Analysis</h3>
+                    <p class="card-description">Accurate property valuation techniques and advanced financial modeling.</p>
+                    <span class="card-cta">Explore Week 4 <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <!-- Week 5 Card -->
+                <div class="academy-card" onclick="openModal('week5')">
+                    <i class="fas fa-handshake card-icon"></i>
+                    <h3 class="card-title">Negotiation & Contracts</h3>
+                    <p class="card-description">Advanced negotiation tactics and contract structuring for maximum profit.</p>
+                    <span class="card-cta">Explore Week 5 <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <!-- Week 6 Card -->
+                <div class="academy-card" onclick="openModal('week6')">
+                    <i class="fas fa-plane card-icon"></i>
+                    <h3 class="card-title">Field Training Experience</h3>
+                    <p class="card-description">Hands-on property evaluation with Tom in real market conditions.</p>
+                    <span class="card-cta">Explore Week 6 <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <!-- Week 7 Card -->
+                <div class="academy-card" onclick="openModal('week7')">
+                    <i class="fas fa-chart-line card-icon"></i>
+                    <h3 class="card-title">Exit Strategies & Profits</h3>
+                    <p class="card-description">Multiple exit strategies to maximize returns on every investment opportunity.</p>
+                    <span class="card-cta">Explore Week 7 <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <!-- Week 8 Card -->
+                <div class="academy-card" onclick="openModal('week8')">
+                    <i class="fas fa-rocket card-icon"></i>
+                    <h3 class="card-title">Business Systems & Scaling</h3>
+                    <p class="card-description">Build scalable systems to grow your investment business efficiently.</p>
+                    <span class="card-cta">Explore Week 8 <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Call to Action -->
+    <section id="enroll" class="container">
+        <div class="enrollment-cta">
+            <h2>Ready to Transform Your Financial Future?</h2>
+            <p>Join the next cohort and start your land investment journey</p>
+            <div class="enrollment-price">$2,497</div>
+            <p>8-week intensive program • Lifetime community access • Field training included</p>
+            <a href="contact.html" class="enrollment-btn">Secure Your Spot Today</a>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Week 1 Modal -->
+    <div id="week1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('week1')">&times;</span>
+            <h3><i class="fas fa-foundation"></i> Week 1: Foundation & Market Analysis</h3>
+            <p><strong>Build Your Investment Foundation</strong></p>
+            <p>Understanding land investment fundamentals and market research techniques that separate successful investors from the rest.</p>
+            <ul>
+                <li>Land investment overview and opportunities</li>
+                <li>Market analysis and research methods</li>
+                <li>Understanding zoning and regulations</li>
+                <li>Initial deal evaluation framework</li>
+                <li>Legal considerations and compliance</li>
+                <li>Risk assessment strategies</li>
+            </ul>
+            <p><strong>Week 1 Deliverable:</strong> Complete your first comprehensive market analysis</p>
+        </div>
+    </div>
+    
+    <!-- Week 2 Modal -->
+    <div id="week2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('week2')">&times;</span>
+            <h3><i class="fas fa-search-plus"></i> Week 2: Lead Generation Systems</h3>
+            <p><strong>Master Deal Discovery</strong></p>
+            <p>Learn how to find profitable land deals before your competition even knows they exist.</p>
+            <ul>
+                <li>Direct mail campaign setup and execution</li>
+                <li>Online lead sources and platforms</li>
+                <li>Networking strategies with professionals</li>
+                <li>Building your lead pipeline</li>
+                <li>Lead qualification systems</li>
+                <li>CRM setup and management</li>
+            </ul>
+            <p><strong>Week 2 Deliverable:</strong> Launch your first lead generation campaign</p>
+        </div>
+    </div>
+    
+    <!-- Week 3 Modal -->
+    <div id="week3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('week3')">&times;</span>
+            <h3><i class="fas fa-clipboard-check"></i> Week 3: Due Diligence Deep Dive</h3>
+            <p><strong>Avoid Costly Mistakes</strong></p>
+            <p>Learn comprehensive property evaluation to protect your investments and maximize returns.</p>
+            <ul>
+                <li>Title research and chain of ownership</li>
+                <li>Environmental assessments and concerns</li>
+                <li>Utility availability and access rights</li>
+                <li>Survey interpretation and boundaries</li>
+                <li>Permit and development restrictions</li>
+                <li>Physical property inspection checklist</li>
+            </ul>
+            <p><strong>Week 3 Deliverable:</strong> Complete full due diligence on sample property</p>
+        </div>
+    </div>
+    
+    <!-- Week 4 Modal -->
+    <div id="week4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('week4')">&times;</span>
+            <h3><i class="fas fa-calculator"></i> Week 4: Valuation & Financial Analysis</h3>
+            <p><strong>Master Property Valuation</strong></p>
+            <p>Accurate property valuation techniques and financial modeling for confident investment decisions.</p>
+            <ul>
+                <li>Comparable sales analysis (CMA)</li>
+                <li>Highest and best use determination</li>
+                <li>Cash flow projections and ROI calculations</li>
+                <li>Financing options and strategies</li>
+                <li>Tax implications and optimization</li>
+                <li>Investment return modeling</li>
+            </ul>
+            <p><strong>Week 4 Deliverable:</strong> Build comprehensive financial model</p>
+        </div>
+    </div>
+    
+    <!-- Week 5 Modal -->
+    <div id="week5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('week5')">&times;</span>
+            <h3><i class="fas fa-handshake"></i> Week 5: Negotiation & Contract Mastery</h3>
+            <p><strong>Win Every Deal</strong></p>
+            <p>Advanced negotiation tactics and contract structuring for maximum profit and protection.</p>
+            <ul>
+                <li>Psychology of negotiation</li>
+                <li>Price negotiation strategies</li>
+                <li>Contract terms and contingencies</li>
+                <li>Creative deal structuring</li>
+                <li>Closing coordination</li>
+                <li>Legal protection strategies</li>
+            </ul>
+            <p><strong>Week 5 Deliverable:</strong> Practice negotiations with real scenarios</p>
+        </div>
+    </div>
+    
+    <!-- Week 6 Modal -->
+    <div id="week6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('week6')">&times;</span>
+            <h3><i class="fas fa-plane"></i> Week 6: Field Training Experience</h3>
+            <p><strong>Real-World Application</strong></p>
+            <p>Hands-on property evaluation with Tom in actual market conditions. Travel included!</p>
+            <ul>
+                <li>Site visits and physical inspections</li>
+                <li>Real-time market evaluation</li>
+                <li>Meeting with local professionals</li>
+                <li>Practice deal analysis on location</li>
+                <li>Network with local contacts</li>
+                <li>Experience different market conditions</li>
+            </ul>
+            <p><strong>Week 6 Deliverable:</strong> Field training weekend with Tom West</p>
+        </div>
+    </div>
+    
+    <!-- Week 7 Modal -->
+    <div id="week7" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('week7')">&times;</span>
+            <h3><i class="fas fa-chart-line"></i> Week 7: Exit Strategies & Profit Maximization</h3>
+            <p><strong>Maximize Every Investment</strong></p>
+            <p>Multiple exit strategies to optimize returns on every investment opportunity you encounter.</p>
+            <ul>
+                <li>Wholesale flipping strategies</li>
+                <li>Development and subdivision opportunities</li>
+                <li>Long-term holding and appreciation</li>
+                <li>Tax optimization strategies</li>
+                <li>Market timing for exits</li>
+                <li>Profit maximization techniques</li>
+            </ul>
+            <p><strong>Week 7 Deliverable:</strong> Develop exit strategy for sample deals</p>
+        </div>
+    </div>
+    
+    <!-- Week 8 Modal -->
+    <div id="week8" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('week8')">&times;</span>
+            <h3><i class="fas fa-rocket"></i> Week 8: Business Systems & Scaling</h3>
+            <p><strong>Build Your Empire</strong></p>
+            <p>Create scalable systems to grow your land investment business efficiently and systematically.</p>
+            <ul>
+                <li>Team building and delegation</li>
+                <li>Process automation and systems</li>
+                <li>Financial management and accounting</li>
+                <li>Long-term growth strategies</li>
+                <li>Business entity structuring</li>
+                <li>Graduation and certification</li>
+            </ul>
+            <p><strong>Week 8 Deliverable:</strong> Receive certification and graduate</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-mountain"></i>
+                        <span>Land Moved by Faith</span>
+                    </div>
+                    <p>Transforming lives through land investment education since 2013.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="academy.html">Academy</a></li>
+                        <li><a href="about.html">About Tom</a></li>
+                        <li><a href="testimonials.html">Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="#enroll">Land Investment Academy</a></li>
+                        <li><a href="contact.html">Private Coaching</a></li>
+                        <li><a href="contact.html">Consultation</a></li>
+                        <li><a href="contact.html">Field Training</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@tomwestacademy.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dallas, TX</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Land Moved by Faith. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+        
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle?.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+        
+        // Smooth scroll for enrollment button
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add intersection observer for cards animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all academy cards
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.academy-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

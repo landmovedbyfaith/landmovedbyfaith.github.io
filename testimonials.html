@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories & Testimonials | Land Moved by Faith</title>
+    <meta name="description" content="Read real success stories from Land Moved by Faith academy students. Proven results and life-changing transformations.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/mobile-fixes.css">
+    
+    <style>
+        /* Success Cards */
+        .success-card {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .success-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
+        }
+        
+        .success-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .success-card:hover::before { left: 100%; }
+        
+        .student-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .student-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FFD700, #DAA520);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #000;
+        }
+        
+        .student-info h3 {
+            color: #FFD700;
+            margin-bottom: 0.25rem;
+            font-size: 1.25rem;
+        }
+        
+        .student-info p {
+            color: #ffffff;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+        
+        .result-label {
+            color: #DAA520;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .success-quote {
+            color: #ffffff;
+            font-style: italic;
+            line-height: 1.6;
+            margin: 1.5rem 0;
+        }
+        
+        .star-rating {
+            display: flex;
+            gap: 0.25rem;
+            margin: 1rem 0;
+        }
+        
+        .star-rating i {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+        
+        /* Hero Stats */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-card {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+        
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        /* Quick Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            border-color: #FFD700;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-rating i {
+            color: #FFD700;
+            margin-right: 0.25rem;
+        }
+        
+        .testimonial-date {
+            color: #DAA520;
+            font-size: 0.85rem;
+        }
+        
+        .testimonial-card blockquote {
+            color: #ffffff;
+            font-style: italic;
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+        
+        .testimonial-author strong {
+            color: #FFD700;
+        }
+        
+        .testimonial-author span {
+            color: #ffffff;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-mountain nav-icon"></i>
+                <span class="logo-text">Land Moved by Faith</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="academy.html" class="nav-link">Academy</a>
+                <a href="about.html" class="nav-link">About Tom</a>
+                <a href="testimonials.html" class="nav-link active">Success Stories</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="academy.html#enroll" class="nav-cta">Enroll Now</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Testimonials Hero -->
+    <section class="testimonials-hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="testimonials-hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Real Student Results</span>
+                </div>
+                
+                <h1 class="hero-title">Success Stories</h1>
+                <p class="hero-subtitle">
+                    Real students. Real results. Real transformations through Land Moved by Faith.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Successful Graduates</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5★</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$50M+</div>
+                        <div class="stat-label">Total Profits</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Success Stories -->
+    <section class="featured-stories">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Featured Success Stories</span>
+                <h2 class="section-title">Life-Changing Results</h2>
+                <p class="section-subtitle">
+                    Meet graduates who transformed their financial futures through land investment
+                </p>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- Amy's Story -->
+                <div class="success-card">
+                    <div class="student-header">
+                        <div class="student-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="student-info">
+                            <h3>Amy Leary</h3>
+                            <p>Retired Teacher • Los Angeles, CA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                    <div class="result-highlight">
+                        <div class="result-number">$100K</div>
+                        <div class="result-label">First Year Profit</div>
+                    </div>
+                    
+                    <blockquote class="success-quote">
+                        "As a single mother and teacher, I never thought I could invest in real estate. Tom's academy 
+                        changed everything. I started with $10,000 and built a portfolio worth $600k in 18 months."
+                    </blockquote>
+                    
+                    <div class="story-details" style="color: #DAA520; font-size: 0.9rem;">
+                        <span>📅 Graduated: March 2018</span> • <span>📈 Deals: 8 in Year 1</span>
+                    </div>
+                </div>
+                
+                <!-- Mike's Story -->
+                <div class="success-card">
+                    <div class="student-header">
+                        <div class="student-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="student-info">
+                            <h3>Mike Thompson</h3>
+                            <p>Former Construction Worker • Oklahoma City, OK</p>
+                        </div>
+                    </div>
+                    
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                    <div class="result-highlight">
+                        <div class="result-number">$875K</div>
+                        <div class="result-label">Portfolio Value</div>
+                    </div>
+                    
+                    <blockquote class="success-quote">
+                        "After 20 years in construction, I was looking for something different. The field training 
+                        was incredible - I learned more in 90 days than multiple years of trial and error."
+                    </blockquote>
+                    
+                    <div class="story-details" style="color: #DAA520; font-size: 0.9rem;">
+                        <span>🏗️ Background: Construction</span> • <span>⏰ Time to Success: 6 months</span>
+                    </div>
+                </div>
+                
+                <!-- Jennifer & David's Story -->
+                <div class="success-card">
+                    <div class="student-header">
+                        <div class="student-avatar">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="student-info">
+                            <h3>Jennifer & David Chen</h3>
+                            <p>Retired Couple • Hilton Head, SC</p>
+                        </div>
+                    </div>
+                    
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                    <div class="result-highlight">
+                        <div class="result-number">$150K</div>
+                        <div class="result-label">Annual Income</div>
+                    </div>
+                    
+                    <blockquote class="success-quote">
+                        "We were worried about retirement savings lasting. Tom showed us how to generate consistent 
+                        income through land investments while preserving our capital."
+                    </blockquote>
+                    
+                    <div class="story-details" style="color: #DAA520; font-size: 0.9rem;">
+                        <span>🏖️ Location: Hilton Head</span> • <span>💰 Focus: Retirement Income</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Testimonials -->
+    <section class="quick-testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Student Reviews</span>
+                <h2 class="section-title">What Our Students Say</h2>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-date">2 months ago</div>
+                    </div>
+                    <blockquote>
+                        "Tom's academy exceeded all expectations. The field training was incredible – walking 
+                        properties with Tom gave me confidence to evaluate deals on my own."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <strong>Robert Kim</strong><br>
+                        <span>Software Engineer</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-date">1 month ago</div>
+                    </div>
+                    <blockquote>
+                        "The private community is worth the investment alone. Having access to other successful 
+                        investors and ongoing support from Tom has been invaluable."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <strong>Amanda Foster</strong><br>
+                        <span>Marketing Director</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-date">3 weeks ago</div>
+                    </div>
+                    <blockquote>
+                        "I closed my first deal just 30 days after graduating. Tom's systematic approach 
+                        and ongoing support made all the difference in my success."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <strong>Carlos Rivera</strong><br>
+                        <span>Restaurant Owner</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-date">2 weeks ago</div>
+                    </div>
+                    <blockquote>
+                        "The 8-week program structure was perfect for my busy schedule. One day per week was 
+                        manageable, and I learned something new every single session."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <strong>Patricia Wilson</strong><br>
+                        <span>Nurse</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-date">1 week ago</div>
+                    </div>
+                    <blockquote>
+                        "Tom's teaching style is clear and practical. No fluff, just proven strategies that 
+                        work. I've already identified 3 potential deals using his methods."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <strong>James Mitchell</strong><br>
+                        <span>Insurance Agent</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-date">4 days ago</div>
+                    </div>
+                    <blockquote>
+                        "Best investment I've ever made in my education. Tom's personal attention and 
+                        quality of instruction far exceeded my expectations."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <strong>Susan Brown</strong><br>
+                        <span>Retired Educator</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="success-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Write Your Success Story?</h2>
+                <p>Join hundreds of successful students who have transformed their financial futures.</p>
+                
+                <div class="cta-actions">
+                    <a href="academy.html#enroll" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i>
+                        Start Your Journey
+                    </a>
+                    <a href="contact.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-comments"></i>
+                        Ask Questions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-mountain"></i>
+                        <span>Land Moved by Faith</span>
+                    </div>
+                    <p>Transforming lives through land investment education since 2013.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="academy.html">Academy</a></li>
+                        <li><a href="about.html">About Tom</a></li>
+                        <li><a href="testimonials.html">Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="academy.html">Land Investment Academy</a></li>
+                        <li><a href="contact.html">Private Coaching</a></li>
+                        <li><a href="contact.html">Consultation</a></li>
+                        <li><a href="contact.html">Field Training</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@tomwestacademy.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dallas, TX</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Land Moved by Faith. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile navigation
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle?.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+        
+        // Card animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.success-card, .testimonial-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
